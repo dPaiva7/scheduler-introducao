@@ -28,3 +28,7 @@ docker compose run --rm --no-deps php ./vendor/bin/phpunit
 ```
 
 `SendDailySummaryHandler` registra que recebeu a mensagem para tornar o fluxo demonstrável. A geração e entrega real de um resumo ainda precisa ser implementada com os dados e destinatários da aplicação.
+
+## Aviso
+
+Este repositório foi criado exclusivamente para fins de estudo e demonstração. Caso deseje realizar a implementação em um ambiente de produção, consulte a [documentação oficial](https://symfony.com/doc/current/scheduler.html) para obter as diretrizes corretas e práticas de segurança.
