@@ -1,0 +1,41 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: symfony_php
+    restart: unless-stopped
+    volumes:
+      - ./skeleton:/var/www/html
+      - php_vendor:/var/www/html/vendor
+    environment:
+      APP_ENV: prod
+      APP_SECRET: change-me-for-local-development
+      TZ: UTC
+      MESSENGER_TRANSPORT_DSN: amqp://scheduler:scheduler@rabbitmq:5672/%2f/messages
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: symfony_rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: scheduler
+      RABBITMQ_DEFAULT_PASS: scheduler
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  php_vendor:
+  rabbitmq_data:

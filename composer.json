@@ -1,0 +1,7 @@
+{
+    "require": {
+        "php": ">=8.5",
+        "symfony/messenger": "^7.4",
+        "symfony/scheduler": "^7.4"
+    }
+}

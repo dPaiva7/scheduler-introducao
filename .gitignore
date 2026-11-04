@@ -1,0 +1,44 @@
+###> composer ###
+/vendor/
+/skeleton/vendor/
+composer.phar
+###< composer ###
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/skeleton/.env.local
+/skeleton/.env.local.php
+/skeleton/.env.*.local
+/skeleton/config/secrets/prod/prod.decrypt.private.php
+/skeleton/public/bundles/
+/var/
+/skeleton/var/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/.phpunit.cache/
+/.phpunit.result.cache
+/skeleton/phpunit.xml
+/skeleton/.phpunit.cache/
+/skeleton/.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> JetBrains / IDEs & Editors ###
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+###< JetBrains / IDEs & Editors ###
+
+###> OS & System ###
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+###< OS & System ###
